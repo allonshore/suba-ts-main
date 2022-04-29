@@ -1,10 +1,10 @@
 import { ApiPromise, WsProvider, Keyring } from "@polkadot/api";
-const WS_ADDRESS = "ws://127.0.0.1:9944";
+const WS_ADDRESS = "ws://172.25.154.208:9944";
 const connectSubstrate = async () => {
     const wsProvider = new WsProvider(WS_ADDRESS);
     const api = await ApiPromise.create({ provider: wsProvider, types: {} });
     await api.isReady;
-    console.log("connection to substrate is OK.");
+    console.log("连接substrate成功");
     return api;
 };
 const getConst = async (api) => {
@@ -59,10 +59,10 @@ const main = async () => {
     console.log("successfuly exit");
 };
 main().then(() => {
-    console.log("connection succefully!");
+    console.log("连接成功");
     process.exit(0);
 }).catch((err) => {
-    console.log("connection failed: " + err);
+    console.log("连接失败 " + err);
     process.exit(1);
 });
 //# sourceMappingURL=main.js.map
